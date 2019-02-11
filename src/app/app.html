@@ -1,0 +1,25 @@
+<ion-split-pane>
+  <ion-menu [content]="content" *ngIf="auth.getUsuarioLogado() != null">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Next Mobile Sales</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+      </ion-list>
+      <ion-list>
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon name='{{p.iconName}}' padding-right color="primary"></ion-icon>{{p.title}}
+        </button>
+      </ion-list>
+      <br>
+      <button (click)="promptSignOut()" ion-button block><ion-icon padding-right name="log-out"></ion-icon>Sair</button>
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" main #content swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>

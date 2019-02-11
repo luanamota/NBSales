@@ -1,0 +1,232 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Alterar Cliente</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <form [formGroup]="form"> -->
+    <ion-grid text-center>
+      <ion-item>
+        <ion-label text-center><strong>Dados Pessoais</strong></ion-label>
+      </ion-item>
+
+      <ion-row responsive-sm>
+        <ion-col col-auto>
+          <ion-item>
+            <ion-label floating>Código cliente:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>CPF/CNPJ:</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>*Nome:</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+          <!-- <ion-item
+            *ngIf="
+              !form.controls.name.valid &&
+              (form.controls.name.dirty || form.controls.name.touched)
+            "
+            color="danger"
+          >
+            <div [hidden]="!form.controls.name.errors.required">
+              O campo é obrigatório!
+            </div>
+          </ion-item> -->
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col col-auto>
+          <ion-item>
+            <ion-label floating>*CEP:</ion-label>
+            <ion-input type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>*Rua:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col col-auto>
+          <ion-item>
+            <ion-label floating>*Número:</ion-label>
+            <ion-input type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Complemento:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col col-auto>
+          <ion-item>
+            <ion-label floating>*Bairro:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>*Cidade</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col>
+          <ion-item>
+            <ion-label>*Estado:</ion-label>
+            <ion-select name="estados-brasil">
+              <ion-option value="AC">Acre</ion-option>
+              <ion-option value="AL">Alagoas</ion-option>
+              <ion-option value="AP">Amapá</ion-option>
+              <ion-option value="AM">Amazonas</ion-option>
+              <ion-option value="BA">Bahia</ion-option>
+              <ion-option value="CE">Ceará</ion-option>
+              <ion-option value="DF">Distrito Federal</ion-option>
+              <ion-option value="ES">Espírito Santo</ion-option>
+              <ion-option value="GO">Goiás</ion-option>
+              <ion-option value="MA">Maranhão</ion-option>
+              <ion-option value="MT">Mato Grosso</ion-option>
+              <ion-option value="MS">Mato Grosso do Sul</ion-option>
+              <ion-option value="MG">Minas Gerais</ion-option>
+              <ion-option value="PA">Pará</ion-option>
+              <ion-option value="PB">Paraíba</ion-option>
+              <ion-option value="PR">Paraná</ion-option>
+              <ion-option value="PE">Pernambuco</ion-option>
+              <ion-option value="PI">Piauí</ion-option>
+              <ion-option value="RJ">Rio de Janeiro</ion-option>
+              <ion-option value="RN">Rio Grande do Norte</ion-option>
+              <ion-option value="RS">Rio Grande do Sul</ion-option>
+              <ion-option value="RO">Rondônia</ion-option>
+              <ion-option value="RR">Roraima</ion-option>
+              <ion-option value="SC">Santa Catarina</ion-option>
+              <ion-option value="SP">São Paulo</ion-option>
+              <ion-option value="SE">Sergipe</ion-option>
+              <ion-option value="TO">Tocantins</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col col-auto>
+          <ion-item>
+            <ion-label floating>Telefone:</ion-label>
+            <ion-input type="tel"></ion-input>
+          </ion-item>
+          <!-- <ion-item
+            *ngIf="
+              !form.controls.phone.valid &&
+              (form.controls.phone.dirty || form.controls.phone.touched)
+            "
+            color="danger"
+          >
+            <div [hidden]="!form.controls.phone.errors.required">
+              O campo é obrigatório!
+            </div>
+          </ion-item> -->
+          <ion-item>
+            <ion-label floating>Celular:</ion-label>
+            <ion-input type="tel"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Email:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col col-auto>
+          <ion-item>
+            <ion-label floating>Origem:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Classificação:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col>
+          <ion-item>
+            <ion-label>*CNAE:</ion-label>
+            <ion-select> <ion-option></ion-option> </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>*Domicílio Fiscal:</ion-label>
+            <ion-select> <ion-option></ion-option> </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col>
+          <ion-item>
+            <ion-label>*Subst. Tributária:</ion-label>
+            <ion-select> <ion-option></ion-option> </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>*Setor Industrial:</ion-label>
+            <ion-select> <ion-option></ion-option> </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Matriz:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-auto>
+          <ion-item>
+            <ion-label floating>Inscrição Estadual:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row responsive-sm>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Suframa:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-auto>
+          <ion-item>
+            <ion-label floating>Validade Suframa:</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <!-- </form> -->
+
+  <ion-fab bottom right>
+    <button ion-fab [navPush]="'DetalheClientePage'">
+      <ion-icon name="checkmark-circle"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

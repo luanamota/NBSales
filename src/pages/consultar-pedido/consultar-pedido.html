@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+      <ion-title>Consultar Pedido</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-searchbar placeholder="Digite o nome do cliente" [(ngModel)]="termo" (ionChange)="exibeFiltrados()">
+            </ion-searchbar>
+
+            <ion-list inset *ngIf="clientes">
+                <button *ngFor="let cliente of clientes" ion-item text-wrap (click)="selecionaCliente(cliente)">
+                  <p>Número do Pedido: {{ cliente.num_pedido }}</p>
+                  <span>Código Cliente: {{ cliente.codigoCliente }} / Nome: {{ cliente.nome }} / CNPJ/CPF: {{ cliente.cnpj }}</span>
+                </button>
+              </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 col-md-6>
+            <p><span padding-right text-capitalize>Nome:</span> {{cliente?.nome}}</p>
+            <p><span padding-right text-capitalize>CPF/CNPJ:</span>{{cliente?.cnpj}}</p>
+            <p><span padding-right text-capitalize>Código:</span>{{cliente?.codigoCliente}}</p>
+            <p><span padding-right text-capitalize>Endereço de Entrega:</span>{{cliente?.end_rua}} {{ cliente?.end_numero }} {{ cliente?.end_cidade }}</p>
+          </ion-col>
+          <ion-col col-12 col-md-6>
+              <p><span padding-right text-capitalize>Número do Pedido:</span>{{cliente?.num_pedido}}</p>
+              <p><span padding-right text-capitalize>Data da Venda:</span>{{cliente?.data}}</p>
+              <p><span padding-right text-capitalize>Valor da Compra: {{cliente?.valor}}</span></p>
+              <p><span padding-right text-capitalize>Forma de Pagamento:</span>{{cliente?.pagamento}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-item></ion-item>
+        <ion-row>
+            <p><span padding-right text-capitalize>Itens:</span>{{cliente?.item1}} - {{cliente?.quantidade1}}</p>
+        </ion-row>
+        <ion-row>
+            <p><span padding-right text-capitalize>Itens:</span>{{cliente?.item2}} - {{cliente?.quantidade2}}</p>
+        </ion-row>
+        <ion-row>
+            <p><span padding-right text-capitalize>Itens:</span>{{cliente?.item3}} - {{cliente?.quantidade3}}</p>
+        </ion-row>
+      </ion-grid>
+</ion-content>

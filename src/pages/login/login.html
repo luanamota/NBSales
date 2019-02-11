@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar color="primary" align-title="center">
+        <!-- <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            Login
+        </ion-title -->
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form #form="ngForm">
+        <ion-list>
+            <ion-item>
+                <ion-label stacked>
+                    Email
+                </ion-label>
+                <ion-input type="email" placeholder="Digite seu Email" name="email" [(ngModel)]="user.Email" #email="ngModel" required></ion-input>
+            </ion-item>
+            <ion-item id="login-input2">
+                <ion-label stacked>
+                    Senha
+                </ion-label>
+                <ion-input type="password" placeholder="Digite sua Senha" name="password" [(ngModel)]="user.password" #password="ngModel"
+                    required></ion-input>
+            </ion-item>
+        </ion-list>
+
+        <button ion-button block icon-right class="botao-entrar" [disabled]="!form.form.valid" (click)="loginAndGoToInbox()">
+            Entrar
+            <ion-icon name="log-in"></ion-icon>
+        </button>
+        <div class="spacer" style="width:300px;height:10px;"></div>
+        <ion-list>
+            <!-- <button ion-button icon-left block clear (click)="loginWithGoogle()">
+                <ion-icon name="logo-google"></ion-icon>
+                Entrar com o Google
+            </button> -->
+
+            <!-- <button ion-button icon-left block clear (click)="goToSignUp()"> -->
+            <button ion-button icon-left block clear [navPush]="'SignupPage'">
+                <ion-icon name="person-add"></ion-icon>
+                Cadastrar
+            </button>
+        </ion-list>
+    </form>
+</ion-content>

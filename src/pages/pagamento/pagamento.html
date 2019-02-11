@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Carrinho Venda</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h4>2. Forma de Pagamento</h4>
+  <ion-grid>
+    <ion-row>
+      <ion-item>
+        <ion-label floating>Nome do Titular:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Número do Cartão:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Código de Segurança:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Data de Validade do Cartão:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-row>
+  </ion-grid>
+<p></p>
+  <button ion-button icon-end (click)="finalizarPedido()" [navPush]="'ProdutosPage'">
+    Finalizar
+    <ion-icon name="checkmark"></ion-icon>
+  </button>
+</ion-content>

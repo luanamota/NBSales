@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Alterar Crédito</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar placeholder="Pesquisar Cliente"  [(ngModel)]="termo"  (ionChange)="exibeFiltrados()"> </ion-searchbar>
+
+  <ion-list inset *ngIf="clientes">
+    <button *ngFor="let cliente of clientes" ion-item text-wrap (click)="selecionaCliente(cliente)">
+      <p>Endereço: {{ cliente.end_rua }}, {{ cliente.end_numero }} - Cidade: {{ cliente.end_cidade }}</p>
+      <span>Código Cliente: {{ cliente.codigoCliente }} / Nome: {{ cliente.nome }} / CNPJ/CPF: {{ cliente.cnpj }}</span>
+    </button>
+  </ion-list>
+
+  <ion-grid padding>
+    <ion-row>
+      <ion-col col-12 col-md-6>
+        <p>Cliente: <span>{{cliente?.codigoCliente}}</span></p>
+        <p>Nome: <span>{{cliente?.nome}}</span></p>
+      </ion-col>
+      <ion-col col-12 col-md-6>
+          <p>Limite Total: <span>R$ 10.000,00</span></p>
+          <p>Limite Individual: <span>R$ 10.000,00</span></p>
+          <p>Grupo de Responsáveis: <span>12345</span></p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-item></ion-item>
+        <ion-col col-12 col-md-6 text-center>
+          <p></p>
+        <h4>Alterar Crédito</h4>
+        <ion-item>
+            <ion-label stacked>Limite de Crédito:</ion-label>
+            <ion-input placeholder="R$"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label stacked>Data da Verificação Seguinte:</ion-label>
+              <ion-input type="date"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Classe Risco:</ion-label>
+                <ion-input placeholder="Classe Risco"></ion-input>
+              </ion-item>
+             </ion-col>
+    </ion-row>
+<!-- <ion-item></ion-item> -->
+
+
+    <!-- <ion-row responsive-sm>
+      <ion-col> <ion-label text-right>Cliente:</ion-label> </ion-col>
+      <ion-col> <ion-label text-left>123765</ion-label> </ion-col>
+    </ion-row>
+    <ion-row responsive-sm>
+      <ion-col> <ion-label text-right>Nome:</ion-label> </ion-col>
+      <ion-col>
+        <ion-label col-auto text-left>AÇO XYZ LTDA</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row responsive-sm>
+      <ion-col> <ion-label text-right>Limite Total:</ion-label> </ion-col>
+      <ion-col> <ion-label text-left>R$ 10.000,00</ion-label> </ion-col>
+    </ion-row>
+    <ion-row responsive-sm>
+      <ion-col> <ion-label text-right>Limite Individual:</ion-label> </ion-col>
+      <ion-col> <ion-label text-left>R$ 10.000,00</ion-label> </ion-col>
+    </ion-row>
+    <ion-row responsive-sm>
+      <ion-col>
+        <ion-label text-right><strong>Limite de Crédito:</strong></ion-label>
+      </ion-col>
+      <ion-col> <ion-input placeholder="R$"></ion-input> </ion-col>
+    </ion-row>
+    <ion-row responsive-sm>
+      <ion-col>
+        <ion-label text-right>Grupo de Responsáveis:</ion-label>
+      </ion-col>
+      <ion-col> <ion-label text-left>12345</ion-label> </ion-col>
+    </ion-row>
+    <ion-row responsive-sm>
+      <ion-col>
+        <ion-label text-right
+          ><strong>Data da Verificação Seguinte:</strong></ion-label
+        >
+      </ion-col>
+      <ion-col> <ion-input type="date" required></ion-input> </ion-col>
+    </ion-row>
+    <ion-row responsive-sm>
+      <ion-col>
+        <ion-label text-right><strong>Classe Risco:</strong></ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="Classe Risco" required></ion-input>
+      </ion-col>
+    </ion-row> -->
+  </ion-grid>
+
+  <ion-fab bottom right>
+    <button ion-fab (click)="alterarCredito()">
+      <ion-icon name="checkmark-circle"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

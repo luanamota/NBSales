@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Transferir Grupo Responsável</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-searchbar placeholder="Pesquisar Cliente">
+  </ion-searchbar>
+
+  <ion-grid padding>
+    <ion-row>
+      <ion-col col-12 col-md-6>
+        <p>Cliente: <span>123765</span></p>
+        <p>Nome: <span>AÇO XYZ LTDA</span></p>
+        <p>Grupo Responsável Atual: <span>XPTO</span></p>
+        <span><ion-item>
+            <ion-label>Grupo Responsável Novo:</ion-label>
+            <ion-select>
+              <ion-option>Atacado</ion-option>
+            </ion-select>
+          </ion-item></span>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab bottom right>
+    <button ion-fab (click)="alterarGrupoCliente()">
+      <ion-icon name="checkmark-circle"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

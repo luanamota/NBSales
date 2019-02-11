@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Consulta de Clientes</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content padding>
+    <ion-searchbar placeholder="Digite o nome do cliente" [(ngModel)]="termo" (ionChange)="exibeFiltrados()"></ion-searchbar>
+    <!-- Lista de clientes estática -->
+    <!-- <ion-list *ngIf="dbClientes">
+        <ion-item *ngFor="let cliente of dbClientes">
+          <button ion-item text-wrap [navPush]="'DetalheClientePage'">
+            <p> {{ cliente.nome}}</p>
+          </button>
+        </ion-item>
+      </ion-list> -->
+
+    <ion-list inset>
+      <button *ngFor="let cliente of fakeClientes" ion-item text-wrap [navPush]="'DetalheClientePage'">
+        <p>Endereço: {{ cliente.end_rua }}, {{ cliente.end_numero }} - Cidade: {{ cliente.end_cidade }}</p>
+        <span>Código Cliente: {{ cliente.codigoCliente }} / Nome: {{ cliente.nome }} / CNPJ/CPF: {{ cliente.cnpj }}</span>
+      </button>
+    </ion-list>
+
+  </ion-content>

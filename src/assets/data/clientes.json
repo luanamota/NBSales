@@ -1,0 +1,35 @@
+[
+    {
+        "nome": "ATACADO DO BRASIL",
+        "codigoCliente": "101102",
+        "end_rua": "R DAS PEDRAS",
+        "end_numero": "23",
+        "end_bairro": "",
+        "end_cidade": "IPATINGA",
+        "end_complemento": "",
+        "end_uf": "SP",
+        "cnpj":"53.111.222/0001-33"
+      },
+      {
+        "nome": "AÇO XYZ LTDA",
+        "codigoCliente": "123765",
+        "end_rua": "AV HENRY FORD",
+        "end_numero": "1123",
+        "end_bairro": "PQ DA MOOCA",
+        "end_cidade": "SÃO PAULO",
+        "end_complemento": "",
+        "end_uf": "SP",
+        "cnpj":"12.343.317/9008-04"
+      },
+      {
+        "nome": "CONSTRUIR LTDA",
+        "codigoCliente": "103105",
+        "end_rua": "R DAS OLIVEIRAS",
+        "end_numero": "283",
+        "end_bairro": "",
+        "end_cidade": "SOROCABA",
+        "end_complemento": "",
+        "end_uf": "SP",
+        "cnpj":"25.086.113/0001-74"
+      }
+]

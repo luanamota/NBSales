@@ -1,0 +1,37 @@
+page-detalhe-produto {
+    .info-prod {
+        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
+        ion-icon {
+            font-size: 52px ;
+        }
+    }
+    ion-scroll[scrollX] {
+        white-space: nowrap;
+        .scroll-item {
+            display: inline-block;
+        }
+    }
+    table {
+        thead {
+            tr {
+                th {
+                    background-color: cor(light);
+                    padding: 10px 5px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        tbody {
+            tr:hover {
+                cursor: pointer;
+                background-color: cor(light)
+            }
+            td {
+                padding: 10px 5px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

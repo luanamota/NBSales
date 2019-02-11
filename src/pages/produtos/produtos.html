@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Produtos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-scroll scrollX padding style="height:160px">
+    <ion-list>
+
+        <button padding>
+            <img src="../../assets/imgs/produtos/BBA.png" height="80" width="80"/>
+            <p>BBA</p>
+          </button>
+          <button padding>
+            <img src="../../assets/imgs/produtos/ConstrucaoCivil.png" height="80" width="80" />
+            <p>Construção Civil</p>
+          </button>
+          <button padding>
+            <img src="../../assets/imgs/produtos/Industria.png" height="80" width="80"/>
+            <p>Indústria</p>
+          </button>
+          <button padding>
+            <img src="../../assets/imgs/produtos/Planos.png" height="80" width="80"/>
+            <p>Planos</p>
+          </button>
+          <button padding>
+              <img src="../../assets/imgs/produtos/Tubos.png" height="80" width="80">
+            <p>Tubos</p>
+          </button>
+          <button padding>
+              <img src="../../assets/imgs/produtos/BBA.png" height="80" width="80"/>
+              <p>BBA</p>
+            </button>
+            <button padding>
+              <img src="../../assets/imgs/produtos/ConstrucaoCivil.png" height="80" width="80" />
+              <p>Construção Civil</p>
+            </button>
+            <button padding>
+              <img src="../../assets/imgs/produtos/Industria.png" height="80" width="80"/>
+              <p>Indústria</p>
+            </button>
+            <button padding>
+              <img src="../../assets/imgs/produtos/Planos.png" height="80" width="80"/>
+              <p>Planos</p>
+            </button>
+            <button padding>
+                <img src="../../assets/imgs/produtos/Tubos.png" height="80" width="80">
+              <p>Tubos</p>
+            </button>
+    </ion-list>
+  </ion-scroll>
+
+  <!-- <ion-row responsive-sm>
+    <ion-col>
+      <ion-item>
+        <ion-label>Categoria:</ion-label>
+        <ion-select> <ion-option></ion-option> </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>Loja:</ion-label>
+        <ion-select> <ion-option></ion-option> </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row> -->
+  <ion-row>
+    <ion-col>
+      <ion-searchbar [(ngModel)]="termo" placeholder="Digite o nome do Produto" (ionChange)="exibeFiltrados()"> </ion-searchbar>
+    </ion-col>
+  </ion-row>
+  <ion-grid text-center>
+    <ion-scroll scrollX style="min-height: 200px">
+      <ion-row>
+        <table datatable col-12>
+          <thead>
+            <tr>
+              <th>Cód. Produto</th>
+              <th>Descrição</th>
+              <th>Preço</th>
+              <th>Estoque</th>
+              <th>Centro</th>
+              <th>Un. Medida</th>
+              <th>Grupo de Merc.</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let produto of produtos">
+              <td [navPush]="'DetalheProdutoPage'">{{produto.Codigo}}</td>
+              <td [navPush]="'DetalheProdutoPage'">{{produto.Descricao}}</td>
+              <td [navPush]="'DetalheProdutoPage'">{{produto.Preco}}</td>
+              <td [navPush]="'DetalheProdutoPage'">{{produto.Estoque}}</td>
+              <td [navPush]="'DetalheProdutoPage'">{{produto.Loja}}</td>
+              <td [navPush]="'DetalheProdutoPage'">{{produto.UnidadeMedida}}</td>
+              <td [navPush]="'DetalheProdutoPage'">{{produto.GrupoMerc}}</td>
+              <td (click)="adicionaAoPedido(produto)">
+                <ion-icon name="cart"></ion-icon>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-row>
+    </ion-scroll>
+  </ion-grid>
+
+  <ion-fab bottom right #fab>
+    <button ion-fab [navPush]="'AdicionarPedidoPage'">
+      <ion-icon name="cart"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

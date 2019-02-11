@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Detalhes do Produto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+  <ion-row>
+      <ion-col col-7 col-md-3>
+          <img src="../../assets/imgs/detalhes-produtos/arame.PNG" height="200" width="200"/>
+        </ion-col>
+      <ion-col>
+        <h4>Arame Farpado Motto - 250m</h4>
+        <hr>
+        <p><span padding-right text-capitalize>Código do Produto: </span>10002</p>
+        <p></p>
+        <p>O arame farpado Motto tem 1,6 mm de espessura e características muito importantes para a construção de cercas de contenção.
+          Além de ser muito resistente contra os impactos de animais, a tripla camada de zinco que o reveste garante maior durabilidade,
+          evitando a corrosão por ações do tempo. A contenção feita com esse material também é muito mais prática e econômica. </p>
+      </ion-col>
+    </ion-row>
+    <ion-item></ion-item>
+    <ion-item text-center>
+      <h3 text-uppercase>Recomendações de Produtos</h3>
+      <ion-scroll scrollX padding style="height:160px">
+        <ion-list>
+          <button padding style="height:100px">
+              <img src="../../assets/imgs/detalhes-produtos/rec1.PNG" height="80" width="80"/>
+          </button>
+          <button padding style="height:100px">
+              <img src="../../assets/imgs/detalhes-produtos/rec2.PNG" height="80" width="80"/>
+          </button>
+          <button padding style="height:100px">
+              <img src="../../assets/imgs/detalhes-produtos/rec3.PNG" height="80" width="80"/>
+          </button>
+          <button padding style="height:100px">
+              <img src="../../assets/imgs/detalhes-produtos/rec4.PNG" height="80" width="80"/>
+          </button>
+          <button padding style="height:100px">
+              <img src="../../assets/imgs/detalhes-produtos/rec5.PNG" height="80" width="80"/>
+          </button>
+        </ion-list>
+      </ion-scroll>
+    </ion-item>
+  <ion-item text-center>
+    <h3 text-uppercase>informações adicionais dos produtos</h3>
+    <button margin class="info-prod">
+      <ion-icon name="md-thumbs-up" color="primary" [navPush]="'AplicacaoProdutoPage'" ></ion-icon>
+      <p>Aplicação</p>
+    </button>
+    <button margin class="info-prod">
+      <ion-icon name="ios-globe-outline" color="primary" [navPush]="'RecomendacaoProdutoPage'" ></ion-icon>
+      <p>Recomendação</p>
+    </button>
+  </ion-item>
+</ion-grid>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Clientes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+  <ion-card>
+    <ion-list>
+      <ion-row>
+        <ion-col>
+          <button ion-item [navPush]="'ConsultarClientePage'">
+            <ion-icon name="search" item-start></ion-icon>
+            Consultar Clientes
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-item [navPush]="'AdicionarClientePage'">
+            <ion-icon name="person-add" item-start></ion-icon>
+            Cadastrar Clientes
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-item [navPush]="'AlterarCreditoClientePage'">
+            <ion-icon name="logo-usd" item-start></ion-icon>
+            Alterar Crédito
+          </button>
+
+        </ion-col>
+        <!-- <ion-col>
+          <button ion-item [navPush]="'TransferirGrupoClientePage'">
+            <ion-icon name="repeat" item-start></ion-icon>
+            Transferir Grupo Responsável
+          </button>
+        </ion-col> -->
+      </ion-row>
+    </ion-list>
+  </ion-card>
+</ion-content>

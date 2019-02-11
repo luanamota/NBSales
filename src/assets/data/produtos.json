@@ -1,0 +1,38 @@
+[
+    {
+        "Codigo":"10002",
+        "Descricao":"Arame Farpado Motto - 250m",
+        "Preco":"130,00",
+        "Estoque":"10",
+        "Loja":"9607",
+        "UnidadeMedida":"Metros",
+        "GrupoMerc":"XPTO Produtos"
+    },
+    {
+        "Codigo":"10005",
+        "Descricao":"Barra Redonda - 8mm",
+        "Preco":"30,00",
+        "Estoque":"13",
+        "Loja":"9607",
+        "UnidadeMedida":"Metros",
+        "GrupoMerc":"XPTO Produtos"
+    },
+    {
+        "Codigo":"10007",
+        "Descricao":"Coluna Soldada - 7x14cm - 6m",
+        "Preco":"50,00",
+        "Estoque":"50",
+        "Loja":"9607",
+        "UnidadeMedida":"Metros",
+        "GrupoMerc":"XPTO Produtos"
+    },
+    {
+        "Codigo":"10009",
+        "Descricao":"Tela Soldada Nervurada - EQ045 - 2x3m",
+        "Preco":"25,00",
+        "Estoque":"10",
+        "Loja":"9607",
+        "UnidadeMedida":"Metros",
+        "GrupoMerc":"XPTO Produtos"
+    }
+]

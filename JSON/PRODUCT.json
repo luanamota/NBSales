@@ -1,0 +1,33 @@
+{
+	"PRODUCT_ID": "Identificador (sku) do produto",
+	"NAME": "Nome / descrição do produto",
+	"UND_STD": "Unidade de Medida Padrão",
+	"UND_SAL": "Unidade de Medida Venda",
+	"UND_STK": "Unidade de Medida Armazenagem",
+	"TYPE": "Tipo",
+	"CATEGORY": "Categoria",
+	"GROUP": "Grupo",
+	"COLOR": "Cor",
+	"SIZE": "Tamanho",
+	"WIDTH": "Largura",
+	"HEIGHT": "Altura",
+	"LENGTH": "Comprimento",
+	"BIGNESS": "Espessura",
+	"WEIGHT": "Peso",
+	"BARCODE": "Codigo de Barras",
+	"BATCH": "Lote",
+	"STOCKS": [{
+		"PRODUCT_ID": "Identificador (sku) do produto",
+		"STORE_ID": "Loja / centro produto disponivel",
+		"WAREHOUSE": "Depósito produto disponível",
+		"QTY": "Quantidade dispobivel em estoque",
+		"UND": "Unidade de Medida estoque"
+	}],
+	"PRICES": [{
+		"PRODUCT_ID": "Identificador (sku) do produto",
+		"PRICE_STD": "Preço Padrão",
+		"PRICE_PRO": "Preço Promocional",
+		"PP_VALID_UNTIL": "Preço promocional valido até aaaa-mm-dd",
+		"CURRENCY": "Moeda (BRL, USD, ect)"
+	}]
+}

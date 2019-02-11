@@ -1,0 +1,29 @@
+page-produtos {
+    ion-scroll[scrollX] {
+        white-space: nowrap;
+        .scroll-item {
+            display: inline-block;
+        }
+    }
+    table {
+        thead {
+            tr {
+                th {
+                    background-color: cor(light);
+                    padding: 10px 5px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        tbody {
+            tr:hover {
+                cursor: pointer;
+                background-color: cor(light)
+            }
+            td {
+                padding: 10px 5px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

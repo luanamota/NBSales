@@ -1,0 +1,62 @@
+{
+	"ID": "Id do Pedido",
+	"ORDER": "Num. Ordem de Venda SAP",
+	"ID_EXT": "Num. Pedido Ref./Ext.",
+	"ORGANIZATION": "Identificação da Organização",
+	"CHANNEL": "Canal de vendas, marketplace, ecmomerce, etc.",
+	"SHIPPING_METHOD": "Método de envio do pedido (CIF, FOB ou EXW)",
+	"LOCAL_EXWORK": "Local de retirada",
+	"ESTIMATED_DELIVERY": "Data estimada da entrega (UTC): aaaa-mm-ddThh:mm:ss",
+	"DT_LAST_DEL": "Data da ultima entrega (UTC): aaaa-mm-ddThh:mm:ss",
+	"DT_LAST_INV": "Data da ultima fatura (UTC): aaaa-mm-ddThh:mm:ss",
+	"CUSTOMER_ID": "ID Cliente",
+	"CREDIT_LIMIT_TOT": "Limite de Crédito Total",
+	"CREDIT_LIMIT": "Limite de Credito Disponível",
+	"CREDIT_LIMIT_USED": "Limite de Credito Compromissado",
+	"REJECT_ISSUE": "Motivo Recusa",
+	"REJECT_ISSUE_DESC": "Descrição Motivo Recusa",
+	"STATUS": {
+		"CODE": "Código de identificação do status",
+		"LABEL": "Descrição do status",
+		"TYPE": "Tipo do status (StatusType)"
+	},
+	"SHIPMENTS": {
+		"CODE": "Código de identificação do envio",
+		"SHP_I": [{
+			"ID": "Identificador do item",
+			"PRODUCT_ID": "Identificador (sku) do produto",
+			"QTY_I_S": "Quantidade Entregue",
+			"UND_I_S": "Unidade de Medida Entrega",
+			"CODE_C": "Código de rastreamento da transportadora",
+			"CARRIER": "Transportadora",
+			"METHOD": "Método de envio",
+			"VEHICLE": "Tipo Veiculo",
+			"VEHICLE_ID": "Placa do veúclo",
+			"DELIVERY_DATE": "Data da entrega (UTC): aaaa-mm-ddThh:mm:ss"
+		}]
+	},
+	"INVOICE": [{
+		"KEY": "Chave da NFe",
+		"NUMBER": "Número",
+		"LINE": "Número de série",
+		"PROTOCOL": "Protocolo NFe",
+		"ISSUE_DATE": "Data Emissão (UTC): aaaa-mm-ddThh:mm:ss",
+		"QTY_T": "Quantidade Total Nota",
+		"VALUE_T": "Valor total Nota",
+		"DISCOUNT_T": "Valor total desconto Nota",
+		"FREIGHT_T": "Valor total frete Nota",
+		"MSG_NFE": "MENSAGEM NFE",
+		"STATUS": "Status NFe",
+		"MODEL": "Modelo Nfe",
+		"XML_V": "Versão Nfe",
+		"XML": "XML Nfe",
+		"INVOICE_DATE": "Data da fatura (UTC): aaaa-mm-ddThh:mm:ss",
+		"ITEM_REF": [{
+			"ID": "Identificador do item",
+			"PRODUCT_ID": "Identificador (sku) do produto",
+			"QTY_I": "Quantidade",
+			"UND_I": "Unidade de Medida",
+			"VALUE_I": "Valor item"
+		}]
+	}]
+}

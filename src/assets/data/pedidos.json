@@ -1,0 +1,61 @@
+[
+  {
+      "nome": "ATACADO DO BRASIL",
+      "codigoCliente": "101102",
+      "end_rua": "R DAS PEDRAS",
+      "end_numero": "23",
+      "end_bairro": "",
+      "end_cidade": "IPATINGA",
+      "end_complemento": "",
+      "end_uf": "SP",
+      "cnpj":"53.111.222/0001-33",
+      "num_pedido": "1100",
+      "valor":"1.950,00",
+      "data": "25/01/2019",
+      "pagamento": "Cartão de Débito",
+      "item1": "Arame Farpado Motto - 250m",
+      "quantidade1": "15 unidades"
+
+    },
+    {
+      "nome": "AÇO XYZ LTDA",
+      "codigoCliente": "123765",
+      "end_rua": "AV HENRY FORD",
+      "end_numero": "1123",
+      "end_bairro": "PQ DA MOOCA",
+      "end_cidade": "SÃO PAULO",
+      "end_complemento": "",
+      "end_uf": "SP",
+      "cnpj":"12.343.317/9008-04",
+      "num_pedido": "1101",
+      "valor":"1.400,00",
+      "data": "14/12/2018",
+      "pagamento": "Cartão de Débito",
+      "item1": "Arame Farpado Motto - 250m",
+      "quantidade1": "5 unidades",
+      "item2": "Coluna Soldada - 7x14cm - 6m",
+      "quantidade2": "15 unidades"
+
+    },
+    {
+      "nome": "CONSTRUIR LTDA",
+      "codigoCliente": "103105",
+      "end_rua": "R DAS OLIVEIRAS",
+      "end_numero": "283",
+      "end_bairro": "",
+      "end_cidade": "SOROCABA",
+      "end_complemento": "",
+      "end_uf": "SP",
+      "cnpj":"25.086.113/0001-74",
+      "num_pedido": "1102",
+      "valor":"3.500,00",
+      "data": "30/01/2019",
+      "pagamento": "Cartão de Crédito",
+      "item1": "Barra Redonda - 8mm",
+      "quantidade1": "15 unidades",
+      "item2": "Arame Farpado Motto - 250m",
+      "quantidade2": "20 unidades",
+      "item3": "Tela Soldada Nervurada - EQ045 - 2x3m",
+      "quantidade3": "18 unidades"
+    }
+]
