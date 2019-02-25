@@ -32,7 +32,7 @@ export class MyApp {
       },
       {
         title: 'Clientes',
-        component: 'ClientesPage',
+        component: 'ConsultarClientePage',
         iconName: 'person'
       },
       {

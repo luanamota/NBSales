@@ -3,11 +3,11 @@
   "CUSTOMER_ID": "Cod. do Cliente",
   "NAME": "Nome",
   "VAT_NUMBER": "CPF ou CNPJ",
-  
+
   "PHONE": "Telefone",
   "CELL": "Celular",
   "EMAIL": "Email do CLiente",
-  
+
   "POSTALCODE": "CEP",
   "STREET": "Rua",
   "NUMBER": "Numero",
@@ -15,12 +15,12 @@
   "NEIGHBORHOOD": "Bairro",
   "CITY": "Cidade",
   "UF": "Estado / UF",
-  "COUNTRY": "Pais"
-  
+  "COUNTRY": "Pais",
+
   "STATE_ID": "Incrição Estadual",
   "MUNICIPAL_ID": "Incrição Municipal",
   "DATE_OF_BIRTH": "Data aniversario aaaa-mm-dd",
-  "GENDER": "Sexo (male ou female)",  
-  
+  "GENDER": "Sexo (male ou female)"
+
 
 }

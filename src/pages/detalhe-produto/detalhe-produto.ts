@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the DetalheProdutoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { SharedProvider } from '../../providers/shared/shared';
+import { ProdutoModel } from '../../app/models/produto/produto.model';
 
 @IonicPage()
 @Component({
@@ -15,11 +10,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DetalheProdutoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) { }
+  produto = new ProdutoModel;
+
+  constructor(private service: SharedProvider, public navCtrl: NavController, public navParams: NavParams) { }
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DetalheProdutoPage');
+    this.produto = this.navParams.get('produto') as ProdutoModel;
   }
 
 }

@@ -1,43 +1,76 @@
-import { AngularFireDatabase } from "angularfire2/database";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import {
   IonicPage,
   NavController,
   NavParams,
+  ToastController,
 } from "ionic-angular";
-import * as firebase from "firebase";
-
-import { map } from 'rxjs/operators';
-import { Observable } from "rxjs";
+import { CONST_CLIENTE } from './adicionar-cliente.constants';
+import { ClienteModel } from '../../app/models/cliente/cliente.model';
+import { SharedProvider } from '../../providers/shared/shared';
+import { classToPlain } from 'class-transformer';
 
 @IonicPage()
 @Component({
   selector: "page-adicionar-cliente",
   templateUrl: "adicionar-cliente.html"
 })
-export class AdicionarClientePage {
-  clientes = [];
-  ref = firebase.database().ref("clientes/");
-  nome: string = "";
-  telefone: string= "";
+export class AdicionarClientePage implements OnInit {
+
+  CONST_CLIENTE = CONST_CLIENTE
+  cliente = new ClienteModel();
+  isNew = true;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public db: AngularFireDatabase
+    public service: SharedProvider,
+    private toastCtrl: ToastController
   ) {
-
-    this.getAllClientes();
   }
 
+  ngOnInit() {
+    this.isNew = this.navParams.get('isNew') as boolean;
+    this.cliente = this.navParams.get('cliente') as ClienteModel;
+  }
   //Adicionar cliente
-  addCliente(cli) {
-    console.log('addCliente Cliente: ', cli)
-    this.db.list('clientes').push(cli)
-      .then((result: any) => {
-        console.log('addCliente ADD: ', result);
-      })
+  salvarCliente() {
+
+    const clienteFire = classToPlain(this.cliente);
+
+    if (this.isNew) {
+      this.addCliente(clienteFire)
+    } else {
+      this.updateCliente(clienteFire)
+    }
+
   }
+
+  addCliente(clienteFire) {
+    let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' })
+    this.service.dbFire.collection('clientes').add(clienteFire)
+    .then(data => {
+      console.log(data);
+      this.navCtrl.pop();
+      toast.setMessage('Cliente adicionado com sucesso!').present();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  updateCliente(clienteFire) {
+    this.service.dbFire.doc(`clientes/${clienteFire.customerId}`).set(clienteFire)
+    .then(data => {
+      console.log(data);
+      this.navCtrl.pop();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+
 
   ionViewDidLoad() {
     // console.log("ionViewDidLoad AdicionarClientePage");
@@ -47,53 +80,4 @@ export class AdicionarClientePage {
     this.navCtrl.push("AdicionarClientePage");
   }
 
-  // Função para buscar os clientes
-  public get(): Observable<any>{
-    return this.db.list('clientes').valueChanges();
-  }
-
-  getAllClientes() {
-    return this.db.list('clientes')
-      .snapshotChanges()
-      .pipe(
-        map(changes => {
-          return this.clientes = changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-        })
-      );
-  }
-  // cadastroCliente(){
-  //   this.db.database.ref('/CUSTOMERS').push(this.createForm)
-  // }
-  // private setupPageTitle() {
-  //   this.title = this.navParams.data.cliente
-  //     ? "Alterando cliente"
-  //     : "Novo cliente";
-  // }
-
-  // createForm() {
-  //   this.form = this.FormBuilder.group({
-  //     key: [this.cliente.key],
-  //     name: [this.cliente.name, Validators.required],
-  //     phone: [this.cliente.phone, Validators.required]
-  //   });
-  // }
-
-  // onSubmit() {
-  //   if (this.form.valid) {
-  //     this.provider
-  //       .save(this.form.value)
-  //       .then(() => {
-  //         this.cliente.toast
-  //           .create({ message: "Cliente salvo com sucesso!", duration: 3000 })
-  //           .present();
-  //         this.navCtrl.pop();
-  //       })
-  //       .catch(e => {
-  //         this.cliente.toast
-  //           .create({ message: "Cliente salvo com sucesso!", duration: 3000 })
-  //           .present();
-  //         console.error(e);
-  //       });
-  //   }
-  // }
 }

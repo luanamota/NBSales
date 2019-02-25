@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { AdicionarClientePage } from './adicionar-cliente';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { AdicionarClientePage } from './adicionar-cliente';
   ],
   imports: [
     IonicPageModule.forChild(AdicionarClientePage),
+    FormsModule
   ],
 })
 export class AdicionarClientePageModule {}

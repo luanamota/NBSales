@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { Usuario } from '../../providers/usuario/usuario';
 import { NgForm } from '@angular/forms';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { LoginPage } from '../login/login';
 
 @IonicPage()

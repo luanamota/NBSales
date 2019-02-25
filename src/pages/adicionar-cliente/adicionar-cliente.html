@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="primary">
     <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
-    <ion-title>Novo Cliente</ion-title>
+    <ion-title>Cliente</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,188 +9,128 @@
   <ion-grid>
     <ion-row>
       <ion-col col-8 col-md-2>
-        <ion-list radio-group>
-          <!--
-          <h6><strong>Tipo de cliente:</strong></h6> -->
 
-          <ion-item>
-            <ion-label>Cliente</ion-label>
-            <ion-radio checked="true" value="cliente"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>Prospect</ion-label>
-            <ion-radio value="prospect"></ion-radio>
-          </ion-item>
-        </ion-list>
+          <ion-list radio-group [(ngModel)]="cliente.isClient" name="clientType" required>
+            <ion-item>
+              <ion-label>Cliente</ion-label>
+              <ion-radio value="true"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Prospect</ion-label>
+              <ion-radio value="false"></ion-radio>
+            </ion-item>
+
+          </ion-list>
+
       </ion-col>
       <ion-col col-10 col-md-4>
         <ion-item>
-          <ion-label>Tipo Pessoa:</ion-label>
-          <ion-select >
+          <ion-label>Tipo de Cliente:</ion-label>
+          <ion-select [(ngModel)]="cliente.customerTyp" name="customerTyp">
             <ion-option selected value="fisica">Pessoa Física</ion-option>
             <ion-option value="juridica">Pessoa Jurídica</ion-option>
-            <ion-option value="cobranca">Endereço Cobrança</ion-option>
-            <ion-option value="entrega">Endereço Entrega</ion-option>
           </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col-10 col-md-4>
+        <ion-item>
+          <ion-label>Vendedor:</ion-label>
+          <ion-select> <ion-option></ion-option> </ion-select>
         </ion-item>
       </ion-col>
     </ion-row>
 
       <ion-row>
         <ion-col col-12 col-md-6>
-          <h4>Dados Pessoais</h4>
+          <h4>Dados Gerais</h4>
           <ion-item>
-            <ion-label floating>Código cliente:</ion-label>
-            <ion-input></ion-input>
+            <ion-label floating>Código Externo:</ion-label>
+            <ion-input [(ngModel)]="cliente.externalId" name="externalId"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>*Nome:</ion-label>
-            <ion-input [(ngModel)]="nome" name="nome"></ion-input>
+            <ion-input [(ngModel)]="cliente.name" name="nome"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>CPF/CNPJ:</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="cliente.vatNumber" name="vatNumber" type="text" ui-mask="99.999.999/9999-99"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Inscrição Estadual:</ion-label>
+            <ion-input [(ngModel)]="cliente.stateId" name="stateId"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col col-12 col-md-6>
           <h4>Contato</h4>
           <ion-item>
             <ion-label floating>Telefone:</ion-label>
-            <ion-input type="tel" [(ngModel)]="telefone" name="telefone"></ion-input>
+            <ion-input type="tel" [(ngModel)]="cliente.phone" name="phone"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Celular:</ion-label>
-            <ion-input type="tel"></ion-input>
+            <ion-input type="tel"  [(ngModel)]="cliente.cell" name="cell"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Email:</ion-label>
-            <ion-input></ion-input>
+            <ion-input  [(ngModel)]="cliente.email" name="email"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col col-12 col-md-6>
           <h4>Endereço</h4>
           <ion-item>
             <ion-label floating>*CEP:</ion-label>
-            <ion-input type="number"></ion-input>
+            <ion-input type="number" [(ngModel)]="cliente.postalCode" name="postalCode"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>*Rua:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="cliente.street" name="street"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>*Número:</ion-label>
-            <ion-input type="number"></ion-input>
+            <ion-input type="number" [(ngModel)]="cliente.number" name="number"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Complemento:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="cliente.detail" name="detail"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>*Bairro:</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="cliente.neighborhood" name="neighborhood"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>*Cidade</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="cliente.city" name="city"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label>*Estado:</ion-label>
-            <ion-select name="estados-brasil">
-              <ion-option value="AC">Acre</ion-option>
-              <ion-option value="AL">Alagoas</ion-option>
-              <ion-option value="AP">Amapá</ion-option>
-              <ion-option value="AM">Amazonas</ion-option>
-              <ion-option value="BA">Bahia</ion-option>
-              <ion-option value="CE">Ceará</ion-option>
-              <ion-option value="DF">Distrito Federal</ion-option>
-              <ion-option value="ES">Espírito Santo</ion-option>
-              <ion-option value="GO">Goiás</ion-option>
-              <ion-option value="MA">Maranhão</ion-option>
-              <ion-option value="MT">Mato Grosso</ion-option>
-              <ion-option value="MS">Mato Grosso do Sul</ion-option>
-              <ion-option value="MG">Minas Gerais</ion-option>
-              <ion-option value="PA">Pará</ion-option>
-              <ion-option value="PB">Paraíba</ion-option>
-              <ion-option value="PR">Paraná</ion-option>
-              <ion-option value="PE">Pernambuco</ion-option>
-              <ion-option value="PI">Piauí</ion-option>
-              <ion-option value="RJ">Rio de Janeiro</ion-option>
-              <ion-option value="RN">Rio Grande do Norte</ion-option>
-              <ion-option value="RS">Rio Grande do Sul</ion-option>
-              <ion-option value="RO">Rondônia</ion-option>
-              <ion-option value="RR">Roraima</ion-option>
-              <ion-option value="SC">Santa Catarina</ion-option>
-              <ion-option value="SP">São Paulo</ion-option>
-              <ion-option value="SE">Sergipe</ion-option>
-              <ion-option value="TO">Tocantins</ion-option>
+            <ion-select name="estados-brasil" [(ngModel)]="cliente.uf" name="uf">
+              <ion-option *ngFor="let estado of CONST_CLIENTE.estados"  value="{{estado.sigla}}">{{estado.estado}}</ion-option>
             </ion-select>
           </ion-item>
         </ion-col>
         <ion-col col-12 col-md-6>
-          <h4>Outros</h4>
+          <h4>Crédito</h4>
           <ion-item>
-            <ion-label floating>Inscrição Estadual:</ion-label>
-            <ion-input></ion-input>
+            <ion-label floating>Limite Total:</ion-label>
+            <ion-input type="number"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label floating>Suframa:</ion-label>
-            <ion-input></ion-input>
+            <ion-label>Classe de Risco:</ion-label>
+            <ion-select>
+              <ion-option></ion-option>
+            </ion-select>
           </ion-item>
-          <ion-item>
-            <ion-label floating>Validade Suframa:</ion-label>
-            <ion-input></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>*CNAE:</ion-label>
-            <ion-select> <ion-option></ion-option> </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label>*Domicílio Fiscal:</ion-label>
-            <ion-select> <ion-option></ion-option> </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label>*Subst. Tributária:</ion-label>
-            <ion-select> <ion-option></ion-option> </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label>*Setor Industrial:</ion-label>
-            <ion-select> <ion-option></ion-option> </ion-select>
-          </ion-item>
-        </ion-col>
-        <ion-col col-12 col-md-6>
-          <h4>Áreas de Vendas</h4>
-          <ion-item>
-            <ion-label>Organização:</ion-label>
-            <ion-select> <ion-option></ion-option> </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label>Canal:</ion-label>
-            <ion-select> <ion-option></ion-option> </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label>Setor:</ion-label>
-            <ion-select> <ion-option></ion-option> </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label>Equipe de Vendas:</ion-label>
-            <ion-select> <ion-option></ion-option> </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label>Vendedor:</ion-label>
-            <ion-select> <ion-option></ion-option> </ion-select>
-          </ion-item>
+              <ion-item>
+                <ion-label floating>Data da Verificação Seguinte:</ion-label>
+                <ion-datetime display-format="MMM DD, YYYY HH:mm"></ion-datetime>
+              </ion-item>
         </ion-col>
       </ion-row>
   </ion-grid>
-
-  <!-- <ion-fab bottom right>
-    <button ion-fab type="submit" [disabled]="! form.valid" (click)="onSubmit()">
-      <ion-icon name="checkmark-circle"></ion-icon>
-    </button>
-  </ion-fab> -->
   <ion-fab bottom right>
-      <button ion-fab (click)="addCliente({nome:nome, telefone:telefone})">
-        <ion-icon name="checkmark-circle"></ion-icon>
+      <button ion-fab (click)="salvarCliente()">
+        <ion-icon name="checkmark-circle" color="white"></ion-icon>
       </button>
     </ion-fab>
 </ion-content>

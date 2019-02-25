@@ -33,7 +33,7 @@
         <p><span padding-right text-capitalize>Código: {{cliente?.codigoCliente}}</span></p>
         <p><span padding-right text-capitalize>Nome: {{cliente?.nome}}</span></p>
         <p><span padding-right text-capitalize>Status:</span>Não Registrado</p>
-        <p><span padding-right text-capitalize>Data Venda:</span>30/01/2019</p>
+        <p><span padding-right text-capitalize>Data Venda:</span>19/02/2019</p>
       </ion-col>
       <ion-col col-12 col-md-6>
         <ion-item>
@@ -75,20 +75,22 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <button ion-button icon-end [navPush]="'ProdutosPage'">Adicionar produtos</button>
+      <button ion-button icon-end [navPush]="'ProdutosPage'">Consultar produtos</button>
+      <button ion-button icon-end>Adicionar produtos</button>
+
       <!-- <ion-searchbar placeholder="Buscar Material"> </ion-searchbar> -->
     </ion-row>
   </ion-grid>
   <ion-grid text-center>
-    <ion-scroll scrollX style="min-height: 200px">
+    <ion-scroll scrollX style="min-height: 200px" scrollY="true">
       <ion-row>
         <table datatable col-12>
           <thead>
             <tr>
               <th>Código</th>
               <th>Produto</th>
+              <th>Qtde.</th>
               <th>Preço</th>
-              <!-- <th>Qtde.</th> -->
               <th>Unid.</th>
               <!-- <th>Centro</th>
               <th>Tipo Frete</th> -->
@@ -97,19 +99,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let produto of produtos">
-              <td>{{produto.Codigo}}</td>
-              <td>{{produto.Descricao}}</td>
-              <td>{{produto.Preco}}</td>
-              <!-- <td>1</td> -->
-              <td>{{produto.UnidadeMedida}}</td>
-              <!-- <td></td>
-              <td>
-                <ion-select> <ion-option></ion-option> </ion-select>
-              </td> -->
-              <td>{{produto.Preco}}</td>
-              <td (click)="removeProduto(produto)">
-                <ion-icon name="close-circle" ></ion-icon>
+            <tr *ngFor="let produto of data; let i = index">
+              <td>{{produto.name}}</td>
+              <td>{{produto.name}}</td>
+              <td>{{produto.quant}}</td>
+              <td>{{produto.valor}}</td>
+              <td>{{produto.quant}}</td>
+              <td>{{produto.total_unit}}</td>
+              <td (click)="removeProduto(i, item)">
+                <ion-icon name="close-circle" color="primary"></ion-icon>
               </td>
             </tr>
           </tbody>
@@ -118,8 +116,9 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td><h6 class="mt-2">Total</h6></td>
-                <td><h6 class="mt-2" id="total">0,00</h6></td>
+                <td><h6 class="mt-2" id="total">R${{calc}}</h6></td>
               </tr>
             </tfoot>
         </table>

@@ -68,7 +68,7 @@
   </ion-row> -->
   <ion-row>
     <ion-col>
-      <ion-searchbar [(ngModel)]="termo" placeholder="Digite o nome do Produto" (ionChange)="exibeFiltrados()"> </ion-searchbar>
+      <ion-searchbar [(ngModel)]="termo" placeholder="Digite o nome do Produto ou o centro" (ionChange)="exibeFiltrados()"> </ion-searchbar>
     </ion-col>
   </ion-row>
   <ion-grid text-center>
@@ -81,26 +81,26 @@
               <th>Descrição</th>
               <th>Preço</th>
               <th>Estoque</th>
-              <th>Centro</th>
               <th>Un. Medida</th>
+              <th>Centro</th>
               <th>Grupo de Merc.</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let produto of produtos">
-              <td [navPush]="'DetalheProdutoPage'">{{produto.Codigo}}</td>
-              <td [navPush]="'DetalheProdutoPage'">{{produto.Descricao}}</td>
-              <td [navPush]="'DetalheProdutoPage'">{{produto.Preco}}</td>
-              <td [navPush]="'DetalheProdutoPage'">{{produto.Estoque}}</td>
-              <td [navPush]="'DetalheProdutoPage'">{{produto.Loja}}</td>
-              <td [navPush]="'DetalheProdutoPage'">{{produto.UnidadeMedida}}</td>
-              <td [navPush]="'DetalheProdutoPage'">{{produto.GrupoMerc}}</td>
-              <td (click)="adicionaAoPedido(produto)">
-                <ion-icon name="cart"></ion-icon>
+            <tr *ngFor="let produto of filteredProdutos">
+              <td (click)="detailProduct(produto)">{{produto.productId}}</td>
+              <td (click)="detailProduct(produto)">{{produto.name}}</td>
+              <td (click)="detailProduct(produto)">{{produto.price}}</td>
+              <td (click)="detailProduct(produto)">{{produto.stock}}</td>
+              <td (click)="detailProduct(produto)">{{produto.undStd}}</td>
+              <td (click)="detailProduct(produto)">{{produto.store}}</td>
+              <td (click)="detailProduct(produto)">{{produto.group}}</td>
+              <td (click)="showPrompt(produto.name, produto.price)">
+              <ion-icon name="cart" color="primary"></ion-icon>
               </td>
             </tr>
-          </tbody>
+          </tbody> 
         </table>
       </ion-row>
     </ion-scroll>
@@ -108,7 +108,7 @@
 
   <ion-fab bottom right #fab>
     <button ion-fab [navPush]="'AdicionarPedidoPage'">
-      <ion-icon name="cart"></ion-icon>
+      <ion-icon name="cart" color="white"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>

@@ -1,24 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+ 
 import { MyApp } from './app.component';
 
 // Firebase & AngularFire
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
+import { HttpClientModule } from '@angular/common/http';
 
 // Services / Providers
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { SharedProvider } from '../providers/shared/shared';
 import { ClienteProvider } from './../providers/cliente/cliente';
 
 // Cordova dep
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProdutosProvider } from '../providers/produtos/produtos';
-import { HttpClientModule } from '@angular/common/http';
 import { GlobalProvider } from '../providers/global/global';
 import { PedidoProvider } from '../providers/pedido/pedido';
 
@@ -40,8 +42,9 @@ import { PedidoProvider } from '../providers/pedido/pedido';
       messagingSenderId: "422656307097"
     }),
     AngularFireStorageModule,
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,11 +56,13 @@ import { PedidoProvider } from '../providers/pedido/pedido';
     AuthServiceProvider,
     AngularFireAuthModule,
     AngularFireAuth,
+    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ClienteProvider,
     ProdutosProvider,
     GlobalProvider,
-    PedidoProvider
+    PedidoProvider,
+    SharedProvider
   ]
 })
 export class AppModule {}

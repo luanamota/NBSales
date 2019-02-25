@@ -1,9 +1,8 @@
-import { Observable } from 'rxjs/Observable';
-import { ClienteProvider } from './../../providers/cliente/cliente';
-import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
-import { map } from 'rxjs/operators';
-import { AngularFireDatabase } from "angularfire2/database";
+import { Component, OnInit } from '@angular/core';
+import { IonicPage, NavController, ToastController, AlertController } from 'ionic-angular';
+import { ClienteModel } from '../../app/models/cliente/cliente.model';
+import { SharedProvider } from '../../providers/shared/shared';
+import { tap } from 'rxjs/operators';
 
 @IonicPage()
 @Component({
@@ -11,79 +10,120 @@ import { AngularFireDatabase } from "angularfire2/database";
   templateUrl: 'consultar-cliente.html',
 })
 
-export class ConsultarClientePage {
-  cliente: Observable<any>;
+export class ConsultarClientePage implements OnInit {
 
-  dbClientes: Observable<any>;
-
-  fakeClientes: any;
-  termo:string = '';
+  clientes: ClienteModel[];
+  filteredClientes: ClienteModel[];
+  termo: string = null;
+  // alertCtrl: any;
 
   constructor(
-    private provider: ClienteProvider,
-    public db: AngularFireDatabase,
+    private service: SharedProvider,
     public navCtrl: NavController,
-  ){
-
-    this.cliente = this.provider.getAll();
+    private toastCtrl: ToastController,
+    public alertCtrl: AlertController
+  ) {
   }
-
-  clientes: [
-    {
-      nome: "AÇONOBRE COM. VAREJ. FERRAG. LTDA",
-      codigoCliente: "10120378",
-      end_rua: "R DAS PEDRAS",
-      end_numero: "23",
-      end_bairro: "",
-      end_cidade: "IPATINGA"
-      end_complemento: "",
-      end_uf: "SP",
-    }
-  ];
 
   ionViewWillEnter() {
-    // this.dbClientes = this.getAllClientes();
-    // console.log('Em dbClientes: ', this.dbClientes);
-    // console.log( JSON.stringify(this.dbClientes) );
-  }
-
-  ionViewDidLoad() {
     this.pegaClientes();
   }
 
-  pegaClientes(){
-    this.provider.pegaClientes()
-      .subscribe((data)=>{
-        console.log(data)
-        this.fakeClientes = data;
-      })
+  ngOnInit() {
+
   }
 
-  // Função para buscar os clientes
-  getAllClientes() {
-    console.log('Função getAllClientes');
-    return this.db.list('clientes')
-      .snapshotChanges()
+  pegaClientes() {
+    console.log('pegaClientes');
+
+    this.service.dbFire.collection('clientes', ref => {
+      return ref.orderBy('name')
+    }).snapshotChanges()
       .pipe(
-        map(changes => {
-          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+        tap(snapshot => {
+          this.clientes = [];
+          snapshot.map(result => {
+            const cliente = result.payload.doc.data() as ClienteModel;
+            cliente.customerId = result.payload.doc.id;
+
+            this.clientes = [...this.clientes, cliente];
+          });
+
+          this.filteredClientes = this.clientes;
         })
-      );
+      )
+      .subscribe();
   }
 
-  exibeFiltrados(){
-    this.fakeClientes = this.filtrar();
+  detailClient(cliente) {
+    console.log(cliente);
+    this.navCtrl.push('DetalheClientePage', { cliente });
+  }
+
+
+  exibeFiltrados() {
+    this.filteredClientes = this.filtrar();
   }
 
   filtrar() {
-    if(this.termo.length > 0){
-      return this.fakeClientes.filter((item) => {
-        return item.nome.toLowerCase().indexOf(this.termo.toLowerCase()) > -1;
+
+    if (this.termo.length > 0) {
+      return this.clientes.filter((item) => {
+        return item.name.toLowerCase().indexOf(this.termo.toLowerCase()) > -1 || item.vatNumber.toLowerCase().indexOf(this.termo.toLowerCase()) > -1;
       });
     }
-    else{
-      this.pegaClientes();
+    else {
+      return this.clientes;
     }
+
   }
+
+  delete(event, cliente: ClienteModel) {
+    let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' })
+    event.stopPropagation();
+    this.service.dbFire.doc(`clientes/${cliente.customerId}`)
+      .delete()
+      .then(() => {
+        console.log('cliente deletado');
+        toast.setMessage('Cliente deletado com sucesso!').present();
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  showConfirm(event, cliente: ClienteModel) {
+    const confirm = this.alertCtrl.create({
+      title: 'Excluir',
+      message: 'Deseja excluir o cliente?',
+      buttons: [
+        {
+          text: 'Não',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' })
+            event.stopPropagation();
+            this.service.dbFire.doc(`clientes/${cliente.customerId}`)
+              .delete()
+              .then(() => {
+                console.log('cliente deletado');
+                toast.setMessage('Cliente excluído com sucesso!').present();
+              })
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  addCliente() {
+    this.navCtrl.push('AdicionarClientePage', {cliente: new ClienteModel, isNew: true});
+  }
+
 
 }

@@ -3,26 +3,26 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>Consulta de Clientes</ion-title>
+      <ion-title>Clientes</ion-title>
     </ion-navbar>
   </ion-header>
 
   <ion-content padding>
-    <ion-searchbar placeholder="Digite o nome do cliente" [(ngModel)]="termo" (ionChange)="exibeFiltrados()"></ion-searchbar>
-    <!-- Lista de clientes estática -->
-    <!-- <ion-list *ngIf="dbClientes">
-        <ion-item *ngFor="let cliente of dbClientes">
-          <button ion-item text-wrap [navPush]="'DetalheClientePage'">
-            <p> {{ cliente.nome}}</p>
-          </button>
-        </ion-item>
-      </ion-list> -->
+    <ion-searchbar placeholder="Digite o nome do cliente ou o CPF/CNPJ" [(ngModel)]="termo" (ionChange)="exibeFiltrados()"></ion-searchbar>
 
     <ion-list inset>
-      <button *ngFor="let cliente of fakeClientes" ion-item text-wrap [navPush]="'DetalheClientePage'">
-        <p>Endereço: {{ cliente.end_rua }}, {{ cliente.end_numero }} - Cidade: {{ cliente.end_cidade }}</p>
-        <span>Código Cliente: {{ cliente.codigoCliente }} / Nome: {{ cliente.nome }} / CNPJ/CPF: {{ cliente.cnpj }}</span>
-      </button>
+      <ion-item *ngFor="let cliente of filteredClientes" ion-item text-wrap (click)="detailClient(cliente)">
+          <p>Nome: {{ cliente.name }} / CNPJ/CPF: {{ cliente.vatNumber }}</p>
+        <span>Endereço: {{ cliente.street }}, {{ cliente.number }} - Cidade: {{ cliente.city }}</span>
+        
+        <!-- <button item-right ion-button color="white" (click)="showConfirm($event, cliente); $event.stopPropagation()" >
+          <ion-icon class="iconDel" name="trash" color="primary"></ion-icon>
+        </button> -->
+      </ion-item>
     </ion-list>
-
-  </ion-content>
+    <ion-fab bottom right #fab>
+      <button ion-fab (click)="addCliente()">
+        <ion-icon name="add" color="white"></ion-icon>
+      </button>
+    </ion-fab>
+    </ion-content>
