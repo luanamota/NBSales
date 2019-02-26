@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
- 
+
 import { MyApp } from './app.component';
 
 // Firebase & AngularFire
@@ -15,14 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 // Services / Providers
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { SharedProvider } from '../providers/shared/shared';
-import { ClienteProvider } from './../providers/cliente/cliente';
 
 // Cordova dep
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ProdutosProvider } from '../providers/produtos/produtos';
-import { GlobalProvider } from '../providers/global/global';
-import { PedidoProvider } from '../providers/pedido/pedido';
 
 
 @NgModule({
@@ -58,10 +54,6 @@ import { PedidoProvider } from '../providers/pedido/pedido';
     AngularFireAuth,
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ClienteProvider,
-    ProdutosProvider,
-    GlobalProvider,
-    PedidoProvider,
     SharedProvider
   ]
 })

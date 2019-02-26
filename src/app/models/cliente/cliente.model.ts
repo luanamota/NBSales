@@ -1,5 +1,5 @@
 export class ClienteModel {
-  isClient = true;
+  isClient: boolean =  true;
   externalId: string = null;
   customerTyp: string = null;
   customerId: string = null;

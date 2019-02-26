@@ -9,46 +9,14 @@
   <ion-scroll scrollX padding style="height:160px">
     <ion-list>
 
-        <button padding>
+        <button padding (click)="query()">
             <img src="../../assets/imgs/produtos/BBA.png" height="80" width="80"/>
-            <p>BBA</p>
+            <p>Grupo 1</p>
           </button>
           <button padding>
             <img src="../../assets/imgs/produtos/ConstrucaoCivil.png" height="80" width="80" />
-            <p>Construção Civil</p>
+            <p>Grupo 2</p>
           </button>
-          <button padding>
-            <img src="../../assets/imgs/produtos/Industria.png" height="80" width="80"/>
-            <p>Indústria</p>
-          </button>
-          <button padding>
-            <img src="../../assets/imgs/produtos/Planos.png" height="80" width="80"/>
-            <p>Planos</p>
-          </button>
-          <button padding>
-              <img src="../../assets/imgs/produtos/Tubos.png" height="80" width="80">
-            <p>Tubos</p>
-          </button>
-          <button padding>
-              <img src="../../assets/imgs/produtos/BBA.png" height="80" width="80"/>
-              <p>BBA</p>
-            </button>
-            <button padding>
-              <img src="../../assets/imgs/produtos/ConstrucaoCivil.png" height="80" width="80" />
-              <p>Construção Civil</p>
-            </button>
-            <button padding>
-              <img src="../../assets/imgs/produtos/Industria.png" height="80" width="80"/>
-              <p>Indústria</p>
-            </button>
-            <button padding>
-              <img src="../../assets/imgs/produtos/Planos.png" height="80" width="80"/>
-              <p>Planos</p>
-            </button>
-            <button padding>
-                <img src="../../assets/imgs/produtos/Tubos.png" height="80" width="80">
-              <p>Tubos</p>
-            </button>
     </ion-list>
   </ion-scroll>
 
@@ -96,11 +64,11 @@
               <td (click)="detailProduct(produto)">{{produto.undStd}}</td>
               <td (click)="detailProduct(produto)">{{produto.store}}</td>
               <td (click)="detailProduct(produto)">{{produto.group}}</td>
-              <td (click)="showPrompt(produto.name, produto.price)">
+              <td (click)="showPrompt(produto.productId, produto.name, produto.undStd, produto.price)">
               <ion-icon name="cart" color="primary"></ion-icon>
               </td>
             </tr>
-          </tbody> 
+          </tbody>
         </table>
       </ion-row>
     </ion-scroll>

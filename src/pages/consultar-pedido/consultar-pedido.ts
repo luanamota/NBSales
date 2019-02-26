@@ -1,4 +1,3 @@
-import { PedidoProvider } from './../../providers/pedido/pedido';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -12,12 +11,12 @@ export class ConsultarPedidoPage {
   clientes:any;
   termo:string = '';
   cliente:any;
-    constructor(private pedidoProvider: PedidoProvider, public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
     }
 
-  ionViewDidLoad() {
-    this.pegaClientes();
-  }
+  // ionViewDidLoad() {
+  //   this.pegaClientes();
+  // }
 
   selecionaCliente(cliente){
     this.termo = '';
@@ -27,12 +26,12 @@ export class ConsultarPedidoPage {
     this.cliente = cliente;
   }
 
-  pegaClientes(){
-    this.pedidoProvider.pegaClientes()
-      .subscribe((data)=>{
-        this.fakeClientes = data;
-      })
-  }
+  // pegaClientes(){
+  //   this.pedidoProvider.pegaClientes()
+  //     .subscribe((data)=>{
+  //       this.fakeClientes = data;
+  //     })
+  // }
 
   exibeFiltrados(){
     this.clientes = this.filtrar();
@@ -45,7 +44,7 @@ export class ConsultarPedidoPage {
       });
     }
     else{
-      this.pegaClientes();
+      //this.pegaClientes();
     }
   }
 

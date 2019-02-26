@@ -15,7 +15,6 @@ export class ConsultarClientePage implements OnInit {
   clientes: ClienteModel[];
   filteredClientes: ClienteModel[];
   termo: string = null;
-  // alertCtrl: any;
 
   constructor(
     private service: SharedProvider,

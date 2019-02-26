@@ -23,23 +23,22 @@
         </ion-searchbar>
 
         <ion-list inset *ngIf="clientes">
-            <button *ngFor="let cliente of clientes" ion-item text-wrap (click)="selecionaCliente(cliente)">
-              <p>Endereço: {{ cliente.end_rua }}, {{ cliente.end_numero }} - Cidade: {{ cliente.end_cidade }}</p>
-              <span>Código Cliente: {{ cliente.codigoCliente }} / Nome: {{ cliente.nome }} / CNPJ/CPF: {{ cliente.cnpj }}</span>
+            <button *ngFor="let cliente of filteredClientes" ion-item text-wrap (click)="selecionaCliente(cliente)">
+                <p>Nome: {{ cliente.name }} / CNPJ/CPF: {{ cliente.vatNumber }}</p>
+                <span>Endereço: {{ cliente.street }}, {{ cliente.number }} - Cidade: {{ cliente.city }}</span>
             </button>
           </ion-list>
-
-        <p><span padding-right text-capitalize>CPF/CNPJ: {{cliente?.cnpj}}</span></p>
-        <p><span padding-right text-capitalize>Código: {{cliente?.codigoCliente}}</span></p>
-        <p><span padding-right text-capitalize>Nome: {{cliente?.nome}}</span></p>
+<!--
+        <p><span padding-right text-capitalize>Nome: {{cliente?.name}}</span></p>
+        <p><span padding-right text-capitalize>CPF/CNPJ: {{cliente?.vatNumber}}</span></p> -->
         <p><span padding-right text-capitalize>Status:</span>Não Registrado</p>
-        <p><span padding-right text-capitalize>Data Venda:</span>19/02/2019</p>
+        <p><span padding-right text-capitalize>Data Venda:</span>{{ today | date: 'dd/MM/yyyy' }}</p>
       </ion-col>
       <ion-col col-12 col-md-6>
         <ion-item>
           <ion-label>Entrega:</ion-label>
           <ion-select>
-              <ion-option>{{cliente?.end_rua}}, {{cliente?.end_numero}}</ion-option>
+              <!-- <ion-option>{{cliente?.street}}, {{cliente?.number}}</ion-option> -->
           </ion-select>
         </ion-item>
         <ion-item>
@@ -100,13 +99,13 @@
           </thead>
           <tbody>
             <tr *ngFor="let produto of data; let i = index">
-              <td>{{produto.name}}</td>
+              <td>{{produto.cod}}</td>
               <td>{{produto.name}}</td>
               <td>{{produto.quant}}</td>
               <td>{{produto.valor}}</td>
-              <td>{{produto.quant}}</td>
+              <td>{{produto.unid}}</td>
               <td>{{produto.total_unit}}</td>
-              <td (click)="removeProduto(i, item)">
+              <td (click)="removeProduto(i, produto.total_unit)">
                 <ion-icon name="close-circle" color="primary"></ion-icon>
               </td>
             </tr>

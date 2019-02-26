@@ -20,6 +20,7 @@ export class AdicionarClientePage implements OnInit {
   CONST_CLIENTE = CONST_CLIENTE
   cliente = new ClienteModel();
   isNew = true;
+  valuedisable:any = 'true';
 
   constructor(
     public navCtrl: NavController,
@@ -33,6 +34,19 @@ export class AdicionarClientePage implements OnInit {
     this.isNew = this.navParams.get('isNew') as boolean;
     this.cliente = this.navParams.get('cliente') as ClienteModel;
   }
+
+  checkValue(value){
+
+    console.log(value);
+    if(value == 'true'){
+      this.valuedisable = 'true';
+    }
+    else if(value == 'false'){
+      this.valuedisable = 'false';
+    }
+
+  }
+
   //Adicionar cliente
   salvarCliente() {
 

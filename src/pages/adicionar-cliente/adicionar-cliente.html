@@ -10,7 +10,7 @@
     <ion-row>
       <ion-col col-8 col-md-2>
 
-          <ion-list radio-group [(ngModel)]="cliente.isClient" name="clientType" required>
+          <ion-list radio-group (ionChange)="checkValue($event)"  [(ngModel)]="cliente.isClient" name="clientType" required>
             <ion-item>
               <ion-label>Cliente</ion-label>
               <ion-radio value="true"></ion-radio>
@@ -28,8 +28,8 @@
         <ion-item>
           <ion-label>Tipo de Cliente:</ion-label>
           <ion-select [(ngModel)]="cliente.customerTyp" name="customerTyp">
-            <ion-option selected value="fisica">Pessoa Física</ion-option>
-            <ion-option value="juridica">Pessoa Jurídica</ion-option>
+            <ion-option selected value="Pessoa Física">Pessoa Física</ion-option>
+            <ion-option value="Pessoa Jurídica">Pessoa Jurídica</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
@@ -46,7 +46,7 @@
           <h4>Dados Gerais</h4>
           <ion-item>
             <ion-label floating>Código Externo:</ion-label>
-            <ion-input [(ngModel)]="cliente.externalId" name="externalId"></ion-input>
+            <ion-input [disabled]="valuedisable == 'false'"  [(ngModel)]="cliente.externalId" name="externalId"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>*Nome:</ion-label>
@@ -54,11 +54,11 @@
           </ion-item>
           <ion-item>
             <ion-label floating>CPF/CNPJ:</ion-label>
-            <ion-input [(ngModel)]="cliente.vatNumber" name="vatNumber" type="text" ui-mask="99.999.999/9999-99"></ion-input>
+            <ion-input [(ngModel)]="cliente.vatNumber" name="vatNumber" type="text"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Inscrição Estadual:</ion-label>
-            <ion-input [(ngModel)]="cliente.stateId" name="stateId"></ion-input>
+            <ion-input [disabled]="valuedisable == 'false'"  [(ngModel)]="cliente.stateId" name="stateId"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col col-12 col-md-6>
@@ -69,7 +69,7 @@
           </ion-item>
           <ion-item>
             <ion-label floating>Celular:</ion-label>
-            <ion-input type="tel"  [(ngModel)]="cliente.cell" name="cell"></ion-input>
+            <ion-input [disabled]="valuedisable == 'false'"  type="tel"  [(ngModel)]="cliente.cell" name="cell"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Email:</ion-label>
@@ -80,31 +80,31 @@
           <h4>Endereço</h4>
           <ion-item>
             <ion-label floating>*CEP:</ion-label>
-            <ion-input type="number" [(ngModel)]="cliente.postalCode" name="postalCode"></ion-input>
+            <ion-input [disabled]="valuedisable == 'false'"  type="number" [(ngModel)]="cliente.postalCode" name="postalCode"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>*Rua:</ion-label>
-            <ion-input [(ngModel)]="cliente.street" name="street"></ion-input>
+            <ion-input [disabled]="valuedisable == 'false'"  [(ngModel)]="cliente.street" name="street"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>*Número:</ion-label>
-            <ion-input type="number" [(ngModel)]="cliente.number" name="number"></ion-input>
+            <ion-input [disabled]="valuedisable == 'false'"  type="number" [(ngModel)]="cliente.number" name="number"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Complemento:</ion-label>
-            <ion-input [(ngModel)]="cliente.detail" name="detail"></ion-input>
+            <ion-input [disabled]="valuedisable == 'false'"  [(ngModel)]="cliente.detail" name="detail"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>*Bairro:</ion-label>
-            <ion-input [(ngModel)]="cliente.neighborhood" name="neighborhood"></ion-input>
+            <ion-input [disabled]="valuedisable == 'false'"  [(ngModel)]="cliente.neighborhood" name="neighborhood"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>*Cidade</ion-label>
-            <ion-input [(ngModel)]="cliente.city" name="city"></ion-input>
+            <ion-input [disabled]="valuedisable == 'false'"  [(ngModel)]="cliente.city" name="city"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label>*Estado:</ion-label>
-            <ion-select name="estados-brasil" [(ngModel)]="cliente.uf" name="uf">
+            <ion-select [disabled]="valuedisable == 'false'"  name="estados-brasil" [(ngModel)]="cliente.uf" name="uf">
               <ion-option *ngFor="let estado of CONST_CLIENTE.estados"  value="{{estado.sigla}}">{{estado.estado}}</ion-option>
             </ion-select>
           </ion-item>
@@ -113,17 +113,17 @@
           <h4>Crédito</h4>
           <ion-item>
             <ion-label floating>Limite Total:</ion-label>
-            <ion-input type="number"></ion-input>
+            <ion-input [disabled]="valuedisable == 'false'"  type="number"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label>Classe de Risco:</ion-label>
-            <ion-select>
+            <ion-select [disabled]="valuedisable == 'false'">
               <ion-option></ion-option>
             </ion-select>
           </ion-item>
               <ion-item>
                 <ion-label floating>Data da Verificação Seguinte:</ion-label>
-                <ion-datetime display-format="MMM DD, YYYY HH:mm"></ion-datetime>
+                <ion-datetime [disabled]="valuedisable == 'false'"  display-format="MMM DD, YYYY HH:mm"></ion-datetime>
               </ion-item>
         </ion-col>
       </ion-row>
